@@ -35,6 +35,9 @@ class _ThemeShowCaseState extends State<ThemeShowCase> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("App bar"),
+      ),
       body: Row(
         children: [
           NavigationRail(
