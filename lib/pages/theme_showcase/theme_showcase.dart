@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
+import 'widgets/buttons.dart';
+
 class ThemeShowCase extends StatefulWidget {
   const ThemeShowCase({super.key});
 
@@ -21,7 +23,7 @@ class _ThemeShowCaseState extends State<ThemeShowCase> {
   Widget _showPage(int index) {
     switch (index) {
       case 0:
-        return Container();
+        return Buttons();
       case 1:
         return Container();
       case 2:
@@ -40,25 +42,22 @@ class _ThemeShowCaseState extends State<ThemeShowCase> {
             onDestinationSelected: _selectPage,
             destinations: const <NavigationRailDestination>[
               NavigationRailDestination(
-                icon: Icon(Icons.grid_view),
-                selectedIcon: Icon(Icons.grid_view_sharp),
-                label: Text('Components'),
+                icon: Icon(Icons.smart_button_rounded),
+                label: Text('Buttons'),
               ),
               NavigationRailDestination(
                 icon: Icon(Icons.imagesearch_roller_outlined),
-                selectedIcon: Icon(Icons.imagesearch_roller),
                 label: Text('Color'),
               ),
               NavigationRailDestination(
                 icon: Icon(Icons.description_outlined),
-                selectedIcon: Icon(Icons.description_rounded),
                 label: Text('Typography'),
               ),
             ],
             selectedIndex: _selectedIndex,
           ),
           const VerticalDivider(thickness: 1, width: 1),
-          _showPage(_selectedIndex),
+          Expanded(child: _showPage(_selectedIndex)),
         ],
       ),
     );
