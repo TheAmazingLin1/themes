@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/rendering.dart';
 
-class Buttons extends StatelessWidget {
-  const Buttons({super.key});
+class Buttons extends StatefulWidget {
+  Buttons({super.key});
 
+  @override
+  State<Buttons> createState() => _ButtonsState();
+}
+
+class _ButtonsState extends State<Buttons> {
   Widget _elevatedButtons() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -98,6 +102,29 @@ class Buttons extends StatelessWidget {
     );
   }
 
+  var isSelected = [
+    false,
+    false,
+    false,
+    false,
+  ];
+
+  Widget _toggleButtons() {
+    return ToggleButtons(
+      onPressed: (index) {
+        isSelected[index] = !isSelected[index];
+        setState(() {});
+      },
+      children: [
+        Icon(Icons.abc),
+        Icon(Icons.abc),
+        Text("Hello "),
+        Icon(Icons.abc),
+      ],
+      isSelected: isSelected,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Align(
@@ -116,6 +143,8 @@ class Buttons extends StatelessWidget {
             _iconButtons(),
             SizedBox(height: 20),
             _floatingActionButtons(),
+            SizedBox(height: 20),
+            _toggleButtons(),
           ],
         ),
       ),
