@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:themes/pages/theme_showcase/widgets/colors_scheme.dart';
+import 'package:themes/pages/theme_showcase/widgets/typography.dart';
 
 import 'widgets/buttons.dart';
 
@@ -26,7 +27,7 @@ class _ThemeShowCaseState extends State<ThemeShowCase> {
       case 1:
         return ColorsScheme();
       case 2:
-        return Container();
+        return Typographies();
     }
     return Container();
   }
